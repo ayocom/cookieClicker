@@ -1,0 +1,48 @@
+body {
+    background-color: grey;
+}
+
+.change {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+#clickme {
+display: block;
+width: 250;
+height:250;
+margin: 0 auto;
+}
+
+#golden {
+    display: block;
+    width: 250;
+    height: 250;
+    margin: 0 auto;
+}
+
+#goldenText {
+    font-weight: 700;
+}
+
+.shrink {
+    transform: scale(0.8);
+}
+
+.remove {
+    display: none; /*completely removed*/
+}
+
+.hide {
+    visibility: hidden; /*not display, space*/
+}
