@@ -9,6 +9,7 @@ let goldenEl = document.getElementById('golden')
 let celebrationEl = document.getElementById('celebration')
 let goldenTextEl = document.getElementById('goldenText')
 let bodyEl = document.getElementById('change')
+let autoButton = document.getElementById('auto')
 
 /*Functions*/
 function hasBeenClicked() {
@@ -20,6 +21,7 @@ function hasBeenClicked() {
     if (clickCount >= 10) {
         if (countChange === 1){
             doublerButton.classList.remove('remove')
+            autoButton.classList.remove('remove')
         }
         if (countChange === 2) {
         tripleButton.classList.remove('remove')
@@ -58,15 +60,29 @@ function buyTriple() {
 
 tripleButton.addEventListener('click', buyTriple)
 
+function buyAuto() {
+    clickCount = clickCount - 10
+    clickCount.innerHTML = clickCount
+    autoButton.classList.add('remove')
+    autoClick()
+}
+
+function autoClick() {
+    setInterval(hasBeenClicked, 1000)
+}
+
+autoButton.addEventListener('click', buyAuto)
+
 /*Golden Cookie*/
 
 function clickGolden(e) {
-    if (countChange === 3)
-    console.log(`${e.code}`)
-    goldenTextEl.classList.add('remove')
-    countChange = countChange + 1
-    clickCount = clickCount + countChange
-    clickCountEl.innerHTML = `${clickCount}`
+    if (countChange >= 3) {
+        console.log(`${e.code}`)
+        goldenTextEl.classList.add('remove')
+        countChange = countChange + 1
+        clickCount = clickCount + countChange
+        clickCountEl.innerHTML = `${clickCount}`
+    }
 }
 
 document.addEventListener('keydown', clickGolden)
